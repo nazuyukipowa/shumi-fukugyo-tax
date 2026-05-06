@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-cream-50 text-ink-700 antialiased;
+  font-feature-settings: 'palt' 1, 'pkna' 1;
+  letter-spacing: 0.01em;
+}
+
+a {
+  @apply transition-colors;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-bold text-cream-50 shadow-sm transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-400 sm:text-base;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-brand-700 bg-transparent px-6 py-3 text-sm font-bold text-brand-800 transition hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400 sm:text-base;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center rounded-full bg-accent-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-400 sm:text-base;
+  }
+
+  .card {
+    @apply rounded-2xl border border-cream-200 bg-white p-6 shadow-[0_2px_12px_-4px_rgba(34,70,61,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(34,70,61,0.18)];
+  }
+
+  .heading-1 {
+    @apply font-display text-3xl font-bold leading-[1.25] tracking-tight text-ink-900 sm:text-[2.6rem] sm:leading-[1.2] lg:text-5xl;
+  }
+
+  .heading-2 {
+    @apply font-display text-2xl font-bold tracking-tight text-ink-900 sm:text-[1.85rem];
+  }
+
+  .heading-3 {
+    @apply font-display text-xl font-bold tracking-tight text-ink-900;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-brand-700;
+  }
+
+  .lede {
+    @apply font-serif text-base leading-relaxed text-ink-700 sm:text-lg;
+  }
+
+  .marker {
+    background-image: linear-gradient(transparent 60%, theme('colors.accent.100') 60%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-inline: 0.15em;
+  }
+
+  .underline-wave {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'><path d='M0,5 Q25,0 50,4 T100,4' stroke='%233d8a72' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 0.4em;
+    padding-bottom: 0.15em;
+  }
+}
