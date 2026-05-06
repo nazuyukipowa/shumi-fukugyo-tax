@@ -40,6 +40,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="text-ink-700 hover:text-brand-700">
+                  お問い合わせ
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="text-ink-700 hover:text-brand-700">
                   プライバシーポリシー
                 </Link>

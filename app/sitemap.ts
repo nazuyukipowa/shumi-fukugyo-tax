@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/kaikei-soft', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/kaigyo-aoiro', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/about', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/contact', priority: 0.4, changeFrequency: 'yearly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/disclaimer', priority: 0.3, changeFrequency: 'yearly' },
   ];
