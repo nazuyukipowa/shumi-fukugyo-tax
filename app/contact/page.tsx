@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
+import ZeirishiCallout from '@/components/ZeirishiCallout';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ',
@@ -41,6 +42,10 @@ export default function Page() {
                   ・営業目的のご連絡、迷惑メールにはお返事しておりません。
                 </li>
               </ul>
+            </div>
+
+            <div className="mb-10">
+              <ZeirishiCallout />
             </div>
 
             <ContactForm />
