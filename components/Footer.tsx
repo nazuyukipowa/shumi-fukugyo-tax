@@ -35,6 +35,11 @@ export default function Footer() {
             <p className="text-sm font-bold text-ink-900">サイト情報</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
+                <Link href="/articles" className="text-ink-700 hover:text-brand-700">
+                  記事一覧
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-ink-700 hover:text-brand-700">
                   運営者について
                 </Link>

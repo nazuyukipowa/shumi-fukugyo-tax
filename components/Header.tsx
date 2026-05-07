@@ -33,6 +33,12 @@ export default function Header() {
               {c.title}
             </Link>
           ))}
+          <Link
+            href="/articles"
+            className="text-sm font-medium text-ink-700 hover:text-brand-700"
+          >
+            記事
+          </Link>
         </nav>
 
         <button
@@ -72,6 +78,13 @@ export default function Header() {
                 {c.emoji} {c.title}
               </Link>
             ))}
+            <Link
+              href="/articles"
+              className="rounded-md px-3 py-3 text-sm font-medium text-ink-700 hover:bg-brand-50 hover:text-brand-800"
+              onClick={() => setOpen(false)}
+            >
+              📰 記事一覧
+            </Link>
           </nav>
         </div>
       )}

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { articles } from '@/lib/site';
+import { getAllArticles } from '@/lib/articles';
 
 const formatDate = (iso: string) => {
   const d = new Date(iso);
@@ -8,6 +8,9 @@ const formatDate = (iso: string) => {
 };
 
 export default function RecentArticles() {
+  const articles = getAllArticles().slice(0, 6);
+  if (articles.length === 0) return null;
+
   const [lead, ...rest] = articles;
 
   return (
@@ -23,11 +26,11 @@ export default function RecentArticles() {
               新着の解説記事
             </h2>
             <p className="lede mt-4">
-              税理士監修のもと、副業会社員の実務で迷いやすい論点をひとつずつ解きほぐします。
+              副業会社員の実務で迷いやすい論点を、一次情報をもとにひとつずつ解きほぐします。
             </p>
           </div>
           <Link
-            href="#categories"
+            href="/articles"
             className="hidden items-center gap-1 self-end whitespace-nowrap text-sm font-bold text-brand-700 hover:text-brand-800 sm:inline-flex"
           >
             記事一覧へ
@@ -49,8 +52,8 @@ export default function RecentArticles() {
             <article className="overflow-hidden rounded-3xl border border-cream-200 bg-white shadow-sm transition group-hover:shadow-lg">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src={lead.image}
-                  alt={lead.imageAlt}
+                  src={lead.hero}
+                  alt={lead.heroAlt}
                   fill
                   sizes="(min-width: 1024px) 60vw, 100vw"
                   className="object-cover transition duration-700 group-hover:scale-105"
@@ -61,7 +64,7 @@ export default function RecentArticles() {
               </div>
               <div className="p-7 sm:p-8">
                 <p className="text-xs tracking-widest text-ink-500">
-                  <time dateTime={lead.date}>{formatDate(lead.date)}</time>
+                  <time dateTime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time>
                   <span className="mx-2 text-cream-200">／</span>
                   読了 約 {lead.readingTime} 分
                 </p>
@@ -69,7 +72,7 @@ export default function RecentArticles() {
                   {lead.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-ink-500">
-                  {lead.excerpt}
+                  {lead.description}
                 </p>
                 <p className="mt-5 text-xs text-ink-500">
                   執筆：<span className="font-bold text-ink-700">{lead.author}</span>
@@ -78,39 +81,41 @@ export default function RecentArticles() {
             </article>
           </Link>
 
-          <ul className="lg:col-span-5">
-            {rest.map((a, i) => (
-              <li key={a.slug}>
-                <Link href={a.href} className="group flex gap-4 py-5">
-                  <div className="relative aspect-square w-24 flex-none overflow-hidden rounded-xl sm:w-28">
-                    <Image
-                      src={a.image}
-                      alt={a.imageAlt}
-                      fill
-                      sizes="120px"
-                      className="object-cover transition duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[11px] tracking-widest text-ink-500">
-                      <span className="font-bold text-brand-700">{a.category}</span>
-                      <span className="mx-2 text-cream-200">／</span>
-                      <time dateTime={a.date}>{formatDate(a.date)}</time>
-                    </p>
-                    <h3 className="font-display mt-2 text-base font-bold leading-snug text-ink-900 group-hover:text-brand-700">
-                      {a.title}
-                    </h3>
-                    <p className="mt-2 text-xs text-ink-500">
-                      執筆：{a.author}
-                    </p>
-                  </div>
-                </Link>
-                {i < rest.length - 1 && (
-                  <hr className="border-cream-200" />
-                )}
-              </li>
-            ))}
-          </ul>
+          {rest.length > 0 && (
+            <ul className="lg:col-span-5">
+              {rest.map((a, i) => (
+                <li key={a.slug}>
+                  <Link href={a.href} className="group flex gap-4 py-5">
+                    <div className="relative aspect-square w-24 flex-none overflow-hidden rounded-xl sm:w-28">
+                      <Image
+                        src={a.hero}
+                        alt={a.heroAlt}
+                        fill
+                        sizes="120px"
+                        className="object-cover transition duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[11px] tracking-widest text-ink-500">
+                        <span className="font-bold text-brand-700">{a.category}</span>
+                        <span className="mx-2 text-cream-200">／</span>
+                        <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time>
+                      </p>
+                      <h3 className="font-display mt-2 text-base font-bold leading-snug text-ink-900 group-hover:text-brand-700">
+                        {a.title}
+                      </h3>
+                      <p className="mt-2 text-xs text-ink-500">
+                        執筆：{a.author}
+                      </p>
+                    </div>
+                  </Link>
+                  {i < rest.length - 1 && (
+                    <hr className="border-cream-200" />
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>
