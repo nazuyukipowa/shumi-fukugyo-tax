@@ -144,6 +144,7 @@ export default function ArticlePage({ params }: Props) {
                 source={article.content}
                 components={articleMdxComponents}
                 options={{
+                  blockJS: false,
                   mdxOptions: {
                     remarkPlugins: [remarkGfm],
                     rehypePlugins: [
