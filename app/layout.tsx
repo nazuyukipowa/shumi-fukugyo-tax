@@ -75,15 +75,11 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
   category: 'finance',
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1f7e69',
+  themeColor: '#3d8a72',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
