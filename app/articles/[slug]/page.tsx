@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import PageHero from '@/components/PageHero';
 import Prose from '@/components/Prose';
 import AffiliateSection from '@/components/AffiliateSection';
+import XShareButton from '@/components/XShareButton';
 import { articleMdxComponents } from '@/lib/mdx-components';
 import { siteConfig } from '@/lib/site';
 import {
@@ -180,6 +181,13 @@ export default function ArticlePage({ params }: Props) {
               </ul>
             </div>
           )}
+
+          <div className="mx-auto mt-12 flex max-w-3xl flex-col items-start gap-3 rounded-2xl border border-cream-200 bg-cream-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-ink-700">
+              この記事が役に立ったら、シェアで応援してもらえると励みになります。
+            </p>
+            <XShareButton title={article.title} url={url} />
+          </div>
         </div>
       </article>
 
