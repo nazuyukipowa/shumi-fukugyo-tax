@@ -8,6 +8,7 @@ export const siteConfig = {
   ogImage: '/og-image.png',
   locale: 'ja_JP',
   twitter: '@shumi_fukugyo',
+  twitterUrl: 'https://x.com/shumi_fukugyo',
   keywords: [
     '確定申告',
     '副業',
