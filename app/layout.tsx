@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import AffiliateClickTracker from '@/components/AffiliateClickTracker';
 import { siteConfig } from '@/lib/site';
 
 const notoSansJP = Noto_Sans_JP({
@@ -99,6 +100,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col font-sans">
         <GoogleAnalytics measurementId={gaId} />
+        <AffiliateClickTracker />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
